@@ -1,0 +1,41 @@
+Name     gb_to_from_esp ;
+PartNo   00 ;
+Date     26/06/2021 ;
+Revision 01 ;
+Designer Engineer ;
+Company  jesse ;
+Assembly None ;
+Location  ;
+Device   g16v8 ;
+
+/* inputs */
+PIN  1 = clk;
+PIN  2 = wr;
+PIN  3 = rd;
+PIN  4 = cs;
+PIN  5 = A15;
+PIN  6 = A14;
+PIN  7 = A13;
+PIN 8 = A12;
+PIN 9 = espReady;
+
+PIN 11 = !oe;
+
+/* outputs */
+PIN 19 = STcp;
+PIN 18 = espInputInterupt;
+PIN 17 = sipoOE;
+PIN 16 = espReadInterupt;
+PIN 15 = readyData;
+
+/* logic */
+addr  = A15 & !A14 & A13 & !A12;
+write =  !wr & rd & !cs & addr;
+read = !rd & wr & !cs & addr;
+STcp = !write;
+espInputInterupt = !write;
+sipoOE = read;
+espReadInterupt = !read;
+readyData = espReady;
+readyData.oe = A15 & !A14 & A13 & A12;
+
