@@ -1,0 +1,3 @@
+These are the files needed to program the ATF16V8 PLD that is used to decode addresses and coordinate with the ESP. The `.PLD` file is the source and is written in WinCUPL. Using the [WinCUPL software](https://www.microchip.com/en-us/products/fpgas-and-plds/spld-cplds/pld-design-resources) you can generate a `.jed` file which can be used to program the PLD. I'm running WinCUPL in linux using wine. I've included the `.jed` and a generated `.doc` file here for convenience.
+
+I'm using a TL866II Plus and [minipro](https://gitlab.com/DavidGriffith/minipro) to program it with the commend `minipro -p "ATF16V8B" -w [filename].jed`.
