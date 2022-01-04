@@ -367,6 +367,7 @@ gameloop:
         ;; mark A as not pressed first
         ld hl, $C000
         ld [hl], 0
+        jp gameloop
 
 
 VBlankHandler:
