@@ -151,7 +151,7 @@ void setup()
 
   connectWifi();
 
-  spiWriteToGB(255);
+  writeToGB(255);
   digitalWrite(kReadyPin, LOW);
 
   t = 0; //millis();
